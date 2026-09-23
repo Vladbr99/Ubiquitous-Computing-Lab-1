@@ -1,56 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
+    <Button
+        android:id="@+id/buttonPlayAgain"
+        android:layout_width="93dp"
+        android:layout_height="58dp"
+        android:layout_below="@+id/textFeedback"
+        android:layout_marginStart="199dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@+id/buttonGuess"
+        android:text="Play Again" />
+
     <TextView
         android:id="@+id/textTitle"
-        android:layout_width="380dp"
-        android:layout_height="35dp"
+        android:layout_width="351dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="24dp"
         android:text="Guess the number between 1 and 30"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:visibility="visible" />
+        android:textSize="20sp" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <EditText
+        android:id="@+id/editGuess"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textTitle"
+        android:layout_marginTop="8dp"
+        android:hint="Enter your guess"
+        android:inputType="number" />
 
-        <EditText
-            android:id="@+id/editGuess"
-            android:layout_width="200dp"
-            android:layout_height="42dp"
-            android:fontFamily="sans-serif"
-            android:hint="Enter your guess:"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="2dp"
-            tools:layout_editor_absoluteY="35dp" />
+    <!-- MOVED UP: must appear before anything that references it -->
+    <TextView
+        android:id="@+id/textFeedback"
+        android:layout_width="170dp"
+        android:layout_height="32dp"
+        android:layout_below="@id/editGuess"
+        android:layout_marginTop="1dp"
+        android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textFeedback"
-            android:layout_width="207dp"
-            android:layout_height="43dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="2dp"
-            tools:layout_editor_absoluteY="77dp" />
+    <TextView
+        android:id="@+id/textGuessCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textFeedback"
+        android:layout_marginTop="6dp"
+        android:text="Guesses: 0"
+        android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/buttonGuess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Guess"
-            tools:layout_editor_absoluteX="6dp"
-            tools:layout_editor_absoluteY="124dp" />
+    <Button
+        android:id="@+id/buttonGuess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textFeedback"
+        android:layout_marginTop="39dp"
+        android:text="Guess" />
 
-        <Button
-            android:id="@+id/buttonPlayAgain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Play Again"
-            tools:layout_editor_absoluteX="121dp"
-            tools:layout_editor_absoluteY="124dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- FIXED: removed negative margin -->
+    android:layout_toEndOf="@id/buttonGuess"
+    android:enabled="false"
+    android:text="Play Again" />
+
 </RelativeLayout>
