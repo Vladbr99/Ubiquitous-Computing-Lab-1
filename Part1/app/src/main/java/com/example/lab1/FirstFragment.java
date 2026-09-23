@@ -34,6 +34,26 @@ public class FirstFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Button submit = view.findViewById(R.id.button);
+
+        submit.setOnClickListener(v -> {
+
+            EditText name = view.findViewById(R.id.editTextText4);
+            EditText phone = view.findViewById(R.id.editTextPhone);
+
+            String n = name.getText().toString();
+            String ph = phone.getText().toString();
+
+            if (!n.matches("^[A-Za-z ]+$")) {
+                name.setError("Letters only");
+                return;
+            }
+
+            if (!ph.matches("\\d+")) {
+                phone.setError("Digits only");
+                return;
+            }
+
+        });
     }
 
     @Override
