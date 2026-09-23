@@ -1,4 +1,8 @@
 package com.example.lab1;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,10 +33,7 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonFirst.setOnClickListener(v ->
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment)
-        );
+        Button submit = view.findViewById(R.id.button);
     }
 
     @Override
