@@ -5,16 +5,6 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <Button
-        android:id="@+id/buttonPlayAgain"
-        android:layout_width="93dp"
-        android:layout_height="58dp"
-        android:layout_below="@+id/textFeedback"
-        android:layout_marginStart="199dp"
-        android:layout_marginTop="40dp"
-        android:layout_toEndOf="@+id/buttonGuess"
-        android:text="Play Again" />
-
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="351dp"
@@ -35,18 +25,28 @@
     <!-- MOVED UP: must appear before anything that references it -->
     <TextView
         android:id="@+id/textFeedback"
-        android:layout_width="170dp"
-        android:layout_height="32dp"
+        android:layout_width="201dp"
+        android:layout_height="80dp"
         android:layout_below="@id/editGuess"
         android:layout_marginTop="1dp"
         android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/buttonPlayAgain"
+        android:layout_width="93dp"
+        android:layout_height="58dp"
+        android:layout_below="@+id/textFeedback"
+        android:layout_marginStart="199dp"
+        android:layout_marginTop="65dp"
+        android:layout_toEndOf="@+id/buttonGuess"
+        android:text="Play Again" />
 
     <TextView
         android:id="@+id/textGuessCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textFeedback"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="31dp"
         android:text="Guesses: 0"
         android:textSize="16sp" />
 
@@ -55,12 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textFeedback"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="64dp"
         android:text="Guess" />
-
-    <!-- FIXED: removed negative margin -->
-    android:layout_toEndOf="@id/buttonGuess"
-    android:enabled="false"
-    android:text="Play Again" />
 
 </RelativeLayout>

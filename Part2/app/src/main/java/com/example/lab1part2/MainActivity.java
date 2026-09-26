@@ -28,6 +28,33 @@ public class MainActivity extends AppCompatActivity {
         Button buttonPlayAgain = findViewById(R.id.buttonPlayAgain);
 
         startNewGame(textFeedback, textGuessCount, editGuess, buttonGuess, buttonPlayAgain);
+
+        buttonGuess.setOnClickListener(v -> {
+            String guessText = editGuess.getText().toString();
+
+            if (guessText.isEmpty()) {
+                textFeedback.setText("Please enter a number.");
+                return;
+            }
+
+            int guess = Integer.parseInt(guessText);
+            guessCount++;
+            textGuessCount.setText("Guesses: " + guessCount);
+
+            if (guess == secretNumber) {
+                textFeedback.setText("Correct! The number was " + secretNumber + ".");
+                buttonGuess.setEnabled(false);
+                buttonPlayAgain.setEnabled(true);
+            } else if (guess < secretNumber) {
+                textFeedback.setText("Too low! Try higher.");
+            } else {
+                textFeedback.setText("Too high! Try lower.");
+            }
+        });
+
+        buttonPlayAgain.setOnClickListener(v -> {
+            startNewGame(textFeedback, textGuessCount, editGuess, buttonGuess, buttonPlayAgain);
+        });
     }
     private void startNewGame(TextView feedback, TextView count, EditText input,
                               Button guessBtn, Button playAgainBtn) {
